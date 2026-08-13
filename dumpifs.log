@@ -1,0 +1,448 @@
+  Offset     Size    Entry Name
+   80000      fa0        0 *.boot
+   80fa0      100     ---- Startup-header flags1=0x21 flags2=0 paddr_bias=0
+   810a0    2a048    83808 startup.*
+   ab0e8       5c     ---- Image-header mountpoint=/
+   ab144     6168     ---- Image-directory
+    ----     ----     ---- Root-dirent
+   b2000    dd000     ---- proc/boot/procnto-smp-instr
+    ----     ----     ---- bin
+    ----        f     ---- bin/cat -> /usr/bin/toybox
+    ----        f     ---- bin/chmod -> /usr/bin/toybox
+ 1fe6000     3000     ---- bin/confstr
+    ----        f     ---- bin/cp -> /usr/bin/toybox
+    ----        f     ---- bin/dd -> /usr/bin/toybox
+ 1fe9000     4000     ---- bin/df
+    ----        f     ---- bin/echo -> /usr/bin/toybox
+ 2149000     a000     ---- bin/gpio-aon-bcm
+ 2153000     b000     ---- bin/gpio-bcm
+ 215e000     9000     ---- bin/gpio-rp1
+ 1fed000     2000     ---- bin/hostname
+ 12eb000     3000     ---- bin/isend
+ 12e8000     3000     ---- bin/isendrecv
+ 1fef000     3000     ---- bin/kill
+ 1ff2000    40000     ---- bin/ksh
+    ----        f     ---- bin/ln -> /usr/bin/toybox
+ 1c05000     6000     ---- bin/login
+    ----        f     ---- bin/ls -> /usr/bin/toybox
+ 2167000     4000     ---- bin/mbox-bcm
+    ----        f     ---- bin/mkdir -> /usr/bin/toybox
+ 2032000     5000     ---- bin/mount
+    ----        f     ---- bin/mv -> /usr/bin/toybox
+ 2037000     9000     ---- bin/on
+ 2040000    1a000     ---- bin/pidin
+    ----        f     ---- bin/pwd -> /usr/bin/toybox
+    ----        f     ---- bin/rm -> /usr/bin/toybox
+    ----        f     ---- bin/sed -> /usr/bin/toybox
+    ----        8     ---- bin/sh -> /bin/ksh
+ 205a000     5000     ---- bin/slay
+ 205f000     9000     ---- bin/slog2info
+ 2068000    14000     ---- bin/slogger2
+ 1c0b000     5000     ---- bin/su
+ 207c000     2000     ---- bin/sync
+ 207e000     2000     ---- bin/umount
+    ----        f     ---- bin/uname -> /usr/bin/toybox
+ 2080000     9000     ---- bin/waitfor
+  18f000     5000     ---- bin/wdtkick
+    ----     ----     ---- dev
+    ----        a     ---- dev/console -> /dev/ser10
+    ----     ----     ---- dev/shmem
+   b12ac      c2c     ---- dev/shmem/sshd_config
+    ----     ----     ---- etc
+ 2901fe2      5d8     ---- etc/dhcpcd.conf
+   b1fee        0     ---- etc/esh
+    ----     ----     ---- etc/firmware
+ 282fc46    9d243     ---- etc/firmware/firmware.bin
+ 2900530      a74     ---- etc/firmware/firmware.clm_blob
+ 29017c8      81a     ---- etc/firmware/nvram.txt
+ 2904370       27     ---- etc/group
+ 2902a9a      40b     ---- etc/hosts
+ 2904397       17     ---- etc/io-sock.conf
+ 2902ea5      228     ---- etc/netconfig
+    ----     ----     ---- etc/pam.d
+ 290408e       ab     ---- etc/pam.d/login
+ 2903fe2       ac     ---- etc/pam.d/passwd
+   b1ed8      116     ---- etc/pam.d/su
+ 29042ed       83     ---- etc/passwd
+ 28f41ce     7259     ---- etc/pf.os
+ 29032bb      1e0     ---- etc/profile
+ 28fd42e     18ee     ---- etc/protocols
+ 29043ae       15     ---- etc/qcrypto.conf
+ 2903f21       c1     ---- etc/qwdi_wifi.conf
+ 28e2642    11b8c     ---- etc/services
+ 2903670      153     ---- etc/shadow
+    ----        a     ---- etc/ssh -> /dev/shmem
+    ----     ----     ---- etc/system
+    ----     ----     ---- etc/system/config
+    ----     ----     ---- etc/system/config/pci
+ 2903b81      101     ---- etc/system/config/pci/pci_hw-bcm2712-rpi5.cfg
+ 2903e5e       c3     ---- etc/system/config/pci/pci_server.cfg
+ 26c0000   16fc46     ---- etc/system/config/pci/pcidatabase.com-tab_delimited.txt
+    ----     ----     ---- etc/system/config/spi
+ 2903a49      138     ---- etc/system/config/spi/spi.conf
+ 28cce89    157b9     ---- etc/system/config/wpa_supplicant.conf
+    ----     ----     ---- home
+    ----     ----     ---- home/qnxuser
+    ----     ----     ---- lib
+    ----     ----     ---- lib/dll
+  264000     6000     ---- lib/dll/cam-cdrom.so
+  25f000     5000     ---- lib/dll/cam-disk.so
+  38a000     9000     ---- lib/dll/devs-axe.so
+  393000     7000     ---- lib/dll/devs-axge.so
+  39a000     9000     ---- lib/dll/devs-cdce.so
+  2bb000     c000     ---- lib/dll/devs-cgem.so
+  2c7000    5e000     ---- lib/dll/devs-em.so
+  373000    17000     ---- lib/dll/devs-igc.so
+  325000    40000     ---- lib/dll/devs-ix.so
+ 2173000    95000     ---- lib/dll/devs-qwdi_dhd_sdio-2_11-rpi5.so
+  365000     e000     ---- lib/dll/devs-re.so
+  3a3000     8000     ---- lib/dll/devs-smsc.so
+ 1220000    1d000     ---- lib/dll/devu-hcd-dwc3-xhci.so
+  2a3000    18000     ---- lib/dll/fs-dos.so
+  26a000    39000     ---- lib/dll/fs-qnx6.so
+  214000    4b000     ---- lib/dll/io-blk.so
+  521000    21000     ---- lib/dll/mods-fdt.so
+  4dc000    25000     ---- lib/dll/mods-pci.so
+  4ba000    22000     ---- lib/dll/mods-phy.so
+  542000     6000     ---- lib/dll/mods-phy_fdt.so
+  501000    20000     ---- lib/dll/mods-usb.so
+    ----     ----     ---- lib/dll/pci
+    ----       16     ---- lib/dll/pci/pci_bkwd_compat.so -> pci_bkwd_compat.so.3.0
+ 1334000     6000     ---- lib/dll/pci/pci_bkwd_compat.so.3.0
+    ----       13     ---- lib/dll/pci/pci_cap-0x01.so -> pci_cap-0x01.so.3.0
+ 133a000     6000     ---- lib/dll/pci/pci_cap-0x01.so.3.0
+    ----       13     ---- lib/dll/pci/pci_cap-0x04.so -> pci_cap-0x04.so.3.0
+ 1340000     5000     ---- lib/dll/pci/pci_cap-0x04.so.3.0
+    ----       13     ---- lib/dll/pci/pci_cap-0x05.so -> pci_cap-0x05.so.3.0
+ 1345000     7000     ---- lib/dll/pci/pci_cap-0x05.so.3.0
+    ----       13     ---- lib/dll/pci/pci_cap-0x07.so -> pci_cap-0x07.so.3.0
+ 134c000     3000     ---- lib/dll/pci/pci_cap-0x07.so.3.0
+    ----       1c     ---- lib/dll/pci/pci_cap-0x09-ffffffff.so -> pci_cap-0x09-ffffffff.so.3.0
+ 134f000     6000     ---- lib/dll/pci/pci_cap-0x09-ffffffff.so.3.0
+    ----       13     ---- lib/dll/pci/pci_cap-0x0d.so -> pci_cap-0x0d.so.3.0
+ 1355000     4000     ---- lib/dll/pci/pci_cap-0x0d.so.3.0
+    ----       1c     ---- lib/dll/pci/pci_cap-0x10-16c3abcd.so -> pci_cap-0x10-16c3abcd.so.3.0
+ 1359000     9000     ---- lib/dll/pci/pci_cap-0x10-16c3abcd.so.3.0
+    ----       1c     ---- lib/dll/pci/pci_cap-0x10-19570400.so -> pci_cap-0x10-19570400.so.3.0
+ 1362000     9000     ---- lib/dll/pci/pci_cap-0x10-19570400.so.3.0
+    ----       13     ---- lib/dll/pci/pci_cap-0x10.so -> pci_cap-0x10.so.3.0
+ 136b000     9000     ---- lib/dll/pci/pci_cap-0x10.so.3.0
+    ----       1c     ---- lib/dll/pci/pci_cap-0x11-ffffffff.so -> pci_cap-0x11-ffffffff.so.3.0
+ 1374000     8000     ---- lib/dll/pci/pci_cap-0x11-ffffffff.so.3.0
+    ----       13     ---- lib/dll/pci/pci_cap-0x11.so -> pci_cap-0x11.so.3.0
+ 137c000     8000     ---- lib/dll/pci/pci_cap-0x11.so.3.0
+    ----       13     ---- lib/dll/pci/pci_cap-0x12.so -> pci_cap-0x12.so.3.0
+ 1384000     5000     ---- lib/dll/pci/pci_cap-0x12.so.3.0
+    ----       13     ---- lib/dll/pci/pci_cap-0x13.so -> pci_cap-0x13.so.3.0
+ 1389000     5000     ---- lib/dll/pci/pci_cap-0x13.so.3.0
+    ----       10     ---- lib/dll/pci/pci_debug.so -> pci_debug.so.3.0
+ 138e000     3000     ---- lib/dll/pci/pci_debug.so.3.0
+    ----       11     ---- lib/dll/pci/pci_debug2.so -> pci_debug2.so.3.0
+ 1391000     3000     ---- lib/dll/pci/pci_debug2.so.3.0
+    ----       1a     ---- lib/dll/pci/pci_hw-bcm2712-rpi5.so -> pci_hw-bcm2712-rpi5.so.3.0
+ 12ee000    1b000     ---- lib/dll/pci/pci_hw-bcm2712-rpi5.so.3.0
+    ----       20     ---- lib/dll/pci/pci_server-buscfg-generic.so -> pci_server-buscfg-generic.so.3.0
+ 1394000     b000     ---- lib/dll/pci/pci_server-buscfg-generic.so.3.0
+    ----       20     ---- lib/dll/pci/pci_server-buscfg-hotplug.so -> pci_server-buscfg-hotplug.so.3.0
+ 139f000     d000     ---- lib/dll/pci/pci_server-buscfg-hotplug.so.3.0
+    ----       21     ---- lib/dll/pci/pci_server-buscfg2-generic.so -> pci_server-buscfg2-generic.so.3.0
+ 13ac000     d000     ---- lib/dll/pci/pci_server-buscfg2-generic.so.3.0
+    ----       21     ---- lib/dll/pci/pci_server-buscfg2-hotplug.so -> pci_server-buscfg2-hotplug.so.3.0
+ 13b9000     f000     ---- lib/dll/pci/pci_server-buscfg2-hotplug.so.3.0
+    ----       21     ---- lib/dll/pci/pci_server-enable_features.so -> pci_server-enable_features.so.3.0
+ 13c8000    11000     ---- lib/dll/pci/pci_server-enable_features.so.3.0
+    ----       1f     ---- lib/dll/pci/pci_server-event_handler.so -> pci_server-event_handler.so.3.0
+ 13d9000    1a000     ---- lib/dll/pci/pci_server-event_handler.so.3.0
+    ----       1b     ---- lib/dll/pci/pci_server-namespace.so -> pci_server-namespace.so.3.0
+ 13f3000     4000     ---- lib/dll/pci/pci_server-namespace.so.3.0
+    ----        f     ---- lib/dll/pci/pci_slog.so -> pci_slog.so.3.0
+ 13f7000     3000     ---- lib/dll/pci/pci_slog.so.3.0
+    ----       10     ---- lib/dll/pci/pci_slog2.so -> pci_slog2.so.3.0
+ 13fa000     3000     ---- lib/dll/pci/pci_slog2.so.3.0
+    ----       12     ---- lib/dll/pci/pci_strings.so -> pci_strings.so.3.0
+ 13fd000     7000     ---- lib/dll/pci/pci_strings.so.3.0
+    ----       17     ---- lib/dll/pci/pcie_xcap-0x0001.so -> pcie_xcap-0x0001.so.3.0
+ 1404000     8000     ---- lib/dll/pci/pcie_xcap-0x0001.so.3.0
+    ----       17     ---- lib/dll/pci/pcie_xcap-0x0003.so -> pcie_xcap-0x0003.so.3.0
+ 140c000     5000     ---- lib/dll/pci/pcie_xcap-0x0003.so.3.0
+    ----       20     ---- lib/dll/pci/pcie_xcap-0x000b-ffffffff.so -> pcie_xcap-0x000b-ffffffff.so.3.0
+ 1411000     6000     ---- lib/dll/pci/pcie_xcap-0x000b-ffffffff.so.3.0
+    ----       17     ---- lib/dll/pci/pcie_xcap-0x0015.so -> pcie_xcap-0x0015.so.3.0
+ 1417000     5000     ---- lib/dll/pci/pcie_xcap-0x0015.so.3.0
+ 16b3000    15000     ---- lib/dll/qcrypto-openssl-3.so
+    ----        9     ---- lib/libc.so -> libc.so.6
+ 1c84000    ad000     ---- lib/libc.so.6
+    ----        b     ---- lib/libcam.so -> libcam.so.2
+  1fa000    1a000     ---- lib/libcam.so.2
+    ----        f     ---- lib/libcatalog.so -> libcatalog.so.1
+ 1d31000     3000     ---- lib/libcatalog.so.1
+    ----       18     ---- lib/libdevice-publisher.so -> libdevice-publisher.so.1
+ 1d34000     3000     ---- lib/libdevice-publisher.so.1
+    ----       10     ---- lib/libfsnotify.so -> libfsnotify.so.1
+ 1d8b000     e000     ---- lib/libfsnotify.so.1
+    ----        d     ---- lib/libgcc_s.so -> libgcc_s.so.1
+ 1d37000    15000     ---- lib/libgcc_s.so.1
+    ----        d     ---- lib/libhiddi.so -> libhiddi.so.1
+ 123d000     9000     ---- lib/libhiddi.so.1
+    ----        c     ---- lib/libjail.so -> libjail.so.1
+  4b4000     6000     ---- lib/libjail.so.1
+    ----        9     ---- lib/libm.so -> libm.so.3
+ 1d4c000    3f000     ---- lib/libm.so.3
+    ----        d     ---- lib/libpci.so -> libpci.so.3.0
+ 1309000    2b000     ---- lib/libpci.so.3.0
+    ----        a     ---- lib/libqh.so -> libqh.so.1
+ 166d000    14000     ---- lib/libqh.so.1
+    ----        d     ---- lib/libregex.so -> libregex.so.1
+ 1681000    10000     ---- lib/libregex.so.1
+    ----        e     ---- lib/libsecpol.so -> libsecpol.so.1
+ 1691000     6000     ---- lib/libsecpol.so.1
+    ----        d     ---- lib/libslog2.so -> libslog2.so.1
+ 16a5000     6000     ---- lib/libslog2.so.1
+    ----       12     ---- lib/libslog2parse.so -> libslog2parse.so.1
+ 1697000     a000     ---- lib/libslog2parse.so.1
+    ----       11     ---- lib/libslog2shim.so -> libslog2shim.so.1
+ 16a1000     4000     ---- lib/libslog2shim.so.1
+    ----        e     ---- lib/libsocket.so -> libsocket.so.4
+  46e000    46000     ---- lib/libsocket.so.4
+    ----       10     ---- lib/libtracelog.so -> libtracelog.so.1
+ 16ab000     8000     ---- lib/libtracelog.so.1
+    ----        e     ---- lib/libusbdci.so -> libusbdci.so.2
+ 12d0000     f000     ---- lib/libusbdci.so.2
+    ----        d     ---- lib/libusbdi.so -> libusbdi.so.2
+ 1246000    10000     ---- lib/libusbdi.so.2
+    ----     ----     ---- proc
+    ----     ----     ---- proc/boot
+ 290349b      1d5     ---- proc/boot/.ssh-server.sh
+ 29037c3      145     ---- proc/boot/.storage-server.sh
+ 29041de       8a     ---- proc/boot/customize_startup.sh
+ 2904139       a5     ---- proc/boot/fan_start.sh
+ 2904268       85     ---- proc/boot/i2c_start.sh
+    ----        d     ---- proc/boot/ldqnx-64.so -> ldqnx-64.so.2
+ 1c47000    3d000     ---- proc/boot/ldqnx-64.so.2
+ 29025ba      4e0     ---- proc/boot/net_start.sh
+ 29030cd      1ee     ---- proc/boot/pci_server_start.sh
+ 2900fa4      824     ---- proc/boot/startup-script
+ 2903d72       ec     ---- proc/boot/uart2_console.sh
+ 2903c82       f0     ---- proc/boot/uart4_console.sh
+ 2903908      141     ---- proc/boot/usb_start.sh
+    ----     ----     ---- root
+    ----     ----     ---- sbin
+  1d9000    21000     ---- sbin/devb-sdmmc-bcm2712
+ 12c2000     e000     ---- sbin/devb-umass
+  db4000    12000     ---- sbin/devc-pty
+  194000    12000     ---- sbin/devc-serpl011-rpi5
+  1a6000    2f000     ---- sbin/devf-ram
+  548000    51000     ---- sbin/dhcpcd
+    ----     ----     ---- sbin/dhcpcd-hooks
+ 28fed1c     1814     ---- sbin/dhcpcd-hooks/20-resolv.conf
+ 28fb427     2007     ---- sbin/dhcpcd-run-hooks
+ 216f000     4000     ---- sbin/fan-rpi5
+ 12df000     9000     ---- sbin/i2c-dwc-rpi5
+  599000    76000     ---- sbin/ifconfig
+  60f000   503000     ---- sbin/io-sock
+ 1256000    60000     ---- sbin/io-usb-otg
+ 2089000     4000     ---- sbin/mqueue
+ 216b000     4000     ---- sbin/msix-rp1
+ 141c000    2d000     ---- sbin/pci-server
+  b12000    56000     ---- sbin/pfctl
+  b68000    19000     ---- sbin/ping
+ 208d000     7000     ---- sbin/pipe
+  b81000     c000     ---- sbin/route
+ 2094000     6000     ---- sbin/shutdown
+ 1662000     b000     ---- sbin/spi-dwc
+  b8d000     7000     ---- sbin/sysctl
+ 12b6000     c000     ---- sbin/usb
+    ----        a     ---- tmp -> /dev/shmem
+    ----     ----     ---- usr
+    ----     ----     ---- usr/bin
+    ----        f     ---- usr/bin/ascii -> /usr/bin/toybox
+    ----        f     ---- usr/bin/base64 -> /usr/bin/toybox
+    ----        f     ---- usr/bin/basename -> /usr/bin/toybox
+    ----        f     ---- usr/bin/bc -> /usr/bin/toybox
+    ----        f     ---- usr/bin/bunzip2 -> /usr/bin/toybox
+    ----        f     ---- usr/bin/bzcat -> /usr/bin/toybox
+    ----        f     ---- usr/bin/cal -> /usr/bin/toybox
+ 26be000     2000     ---- usr/bin/chaitanya
+    ----        f     ---- usr/bin/chgrp -> /usr/bin/toybox
+    ----        f     ---- usr/bin/chown -> /usr/bin/toybox
+    ----        f     ---- usr/bin/cksum -> /usr/bin/toybox
+    ----        f     ---- usr/bin/clear -> /usr/bin/toybox
+    ----        f     ---- usr/bin/cmp -> /usr/bin/toybox
+    ----        f     ---- usr/bin/comm -> /usr/bin/toybox
+    ----        f     ---- usr/bin/cpio -> /usr/bin/toybox
+    ----        f     ---- usr/bin/crc32 -> /usr/bin/toybox
+    ----        f     ---- usr/bin/cut -> /usr/bin/toybox
+    ----        f     ---- usr/bin/date -> /usr/bin/toybox
+    ----        f     ---- usr/bin/diff -> /usr/bin/toybox
+    ----        f     ---- usr/bin/dirname -> /usr/bin/toybox
+    ----        f     ---- usr/bin/dos2unix -> /usr/bin/toybox
+    ----        f     ---- usr/bin/du -> /usr/bin/toybox
+    ----        f     ---- usr/bin/egrep -> /usr/bin/toybox
+    ----        f     ---- usr/bin/env -> /usr/bin/toybox
+    ----        f     ---- usr/bin/expand -> /usr/bin/toybox
+    ----        f     ---- usr/bin/expr -> /usr/bin/toybox
+    ----        f     ---- usr/bin/false -> /usr/bin/toybox
+    ----        f     ---- usr/bin/fgrep -> /usr/bin/toybox
+    ----        f     ---- usr/bin/file -> /usr/bin/toybox
+    ----        f     ---- usr/bin/find -> /usr/bin/toybox
+  1d5000     4000     ---- usr/bin/flashctl
+ 209a000     9000     ---- usr/bin/getconf
+    ----        f     ---- usr/bin/grep -> /usr/bin/toybox
+    ----        f     ---- usr/bin/groups -> /usr/bin/toybox
+    ----        f     ---- usr/bin/gunzip -> /usr/bin/toybox
+    ----        f     ---- usr/bin/gzip -> /usr/bin/toybox
+ 20a3000     5000     ---- usr/bin/hd
+    ----        f     ---- usr/bin/head -> /usr/bin/toybox
+    ----        f     ---- usr/bin/id -> /usr/bin/toybox
+    ----        f     ---- usr/bin/install -> /usr/bin/toybox
+ 20a8000     3000     ---- usr/bin/ldd
+    ----        f     ---- usr/bin/link -> /usr/bin/toybox
+    ----        f     ---- usr/bin/logname -> /usr/bin/toybox
+    ----        f     ---- usr/bin/md5sum -> /usr/bin/toybox
+    ----        f     ---- usr/bin/mkfifo -> /usr/bin/toybox
+    ----        f     ---- usr/bin/mktemp -> /usr/bin/toybox
+    ----        f     ---- usr/bin/more -> /usr/bin/toybox
+  b94000    38000     ---- usr/bin/netstat
+    ----        f     ---- usr/bin/nl -> /usr/bin/toybox
+    ----        f     ---- usr/bin/nohup -> /usr/bin/toybox
+    ----        f     ---- usr/bin/od -> /usr/bin/toybox
+ 1c10000     8000     ---- usr/bin/passwd
+    ----        f     ---- usr/bin/paste -> /usr/bin/toybox
+    ----        f     ---- usr/bin/patch -> /usr/bin/toybox
+  dc6000    10000     ---- usr/bin/pdebug
+    ----        f     ---- usr/bin/printenv -> /usr/bin/toybox
+    ----        f     ---- usr/bin/printf -> /usr/bin/toybox
+    ----        f     ---- usr/bin/readlink -> /usr/bin/toybox
+    ----        f     ---- usr/bin/realpath -> /usr/bin/toybox
+    ----        f     ---- usr/bin/rmdir -> /usr/bin/toybox
+ 1064000    3b000     ---- usr/bin/scp
+    ----        f     ---- usr/bin/seq -> /usr/bin/toybox
+ 20ab000     9000     ---- usr/bin/setconf
+    ----        f     ---- usr/bin/sha1sum -> /usr/bin/toybox
+    ----        f     ---- usr/bin/sleep -> /usr/bin/toybox
+  bcc000     8000     ---- usr/bin/sockstat
+    ----        f     ---- usr/bin/sort -> /usr/bin/toybox
+    ----        f     ---- usr/bin/split -> /usr/bin/toybox
+ 109f000    ed000     ---- usr/bin/ssh
+ 118c000    94000     ---- usr/bin/ssh-keygen
+    ----        f     ---- usr/bin/stat -> /usr/bin/toybox
+    ----        f     ---- usr/bin/strings -> /usr/bin/toybox
+    ----        f     ---- usr/bin/tail -> /usr/bin/toybox
+    ----        f     ---- usr/bin/tar -> /usr/bin/toybox
+    ----        f     ---- usr/bin/tee -> /usr/bin/toybox
+    ----        f     ---- usr/bin/test -> /usr/bin/toybox
+    ----        f     ---- usr/bin/time -> /usr/bin/toybox
+    ----        f     ---- usr/bin/timeout -> /usr/bin/toybox
+ 20b4000     6000     ---- usr/bin/top
+    ----        f     ---- usr/bin/touch -> /usr/bin/toybox
+ 20ea000    5f000     ---- usr/bin/toybox
+    ----        f     ---- usr/bin/true -> /usr/bin/toybox
+    ----        f     ---- usr/bin/truncate -> /usr/bin/toybox
+    ----        f     ---- usr/bin/tty -> /usr/bin/toybox
+    ----        f     ---- usr/bin/uniq -> /usr/bin/toybox
+    ----        f     ---- usr/bin/unix2dos -> /usr/bin/toybox
+    ----        f     ---- usr/bin/unlink -> /usr/bin/toybox
+ 20ba000    12000     ---- usr/bin/use
+    ----        f     ---- usr/bin/uudecode -> /usr/bin/toybox
+    ----        f     ---- usr/bin/uuencode -> /usr/bin/toybox
+    ----        f     ---- usr/bin/uuidgen -> /usr/bin/toybox
+  bd4000     9000     ---- usr/bin/vmstat
+    ----        f     ---- usr/bin/wc -> /usr/bin/toybox
+    ----        f     ---- usr/bin/which -> /usr/bin/toybox
+    ----        f     ---- usr/bin/whoami -> /usr/bin/toybox
+    ----        f     ---- usr/bin/xargs -> /usr/bin/toybox
+    ----        f     ---- usr/bin/xxd -> /usr/bin/toybox
+    ----        f     ---- usr/bin/yes -> /usr/bin/toybox
+    ----        f     ---- usr/bin/zcat -> /usr/bin/toybox
+    ----     ----     ---- usr/lib
+    ----       11     ---- usr/lib/libbacktrace.so -> libbacktrace.so.1
+ 1d99000     4000     ---- usr/lib/libbacktrace.so.1
+    ----        b     ---- usr/lib/libc++.so -> libc++.so.2
+ 1d9d000   137000     ---- usr/lib/libc++.so.2
+    ----        e     ---- usr/lib/libcrypto.so -> libcrypto.so.3
+ 16c8000   41d000     ---- usr/lib/libcrypto.so.3
+    ----        c     ---- usr/lib/libedit.so -> libedit.so.0
+  3ab000    51000     ---- usr/lib/libedit.so.0
+    ----        d     ---- usr/lib/libexpat.so -> libexpat.so.2
+  3fc000    2d000     ---- usr/lib/libexpat.so.2
+    ----        b     ---- usr/lib/libfdt.so -> libfdt.so.1
+  429000     a000     ---- usr/lib/libfdt.so.1
+    ----        d     ---- usr/lib/libiconv.so -> libiconv.so.1
+ 1ed4000    e2000     ---- usr/lib/libiconv.so.1
+    ----        c     ---- usr/lib/libintl.so -> libintl.so.1
+ 1fb6000    12000     ---- usr/lib/libintl.so.1
+    ----       10     ---- usr/lib/libncursesw.so -> libncursesw.so.1
+ 1ae5000    6b000     ---- usr/lib/libncursesw.so.1
+    ----        b     ---- usr/lib/libpam.so -> libpam.so.2
+ 1c18000    12000     ---- usr/lib/libpam.so.2
+    ----        e     ---- usr/lib/libpanelw.so -> libpanelw.so.1
+ 1fc8000     4000     ---- usr/lib/libpanelw.so.1
+    ----       11     ---- usr/lib/libqcrypto.so -> libqcrypto.so.1.0
+ 1b50000     a000     ---- usr/lib/libqcrypto.so.1.0
+    ----        b     ---- usr/lib/librpc.so -> librpc.so.2
+  433000    1f000     ---- usr/lib/librpc.so.2
+    ----        b     ---- usr/lib/libssl.so -> libssl.so.3
+ 1b5a000    ab000     ---- usr/lib/libssl.so.3
+    ----        a     ---- usr/lib/libxo.so -> libxo.so.0
+  452000    1c000     ---- usr/lib/libxo.so.0
+    ----        9     ---- usr/lib/libz.so -> libz.so.2
+ 1fcc000    1a000     ---- usr/lib/libz.so.2
+    ----        d     ---- usr/lib/pam_deny.so -> pam_deny.so.2
+ 1c2a000     2000     ---- usr/lib/pam_deny.so.2
+    ----        d     ---- usr/lib/pam_echo.so -> pam_echo.so.2
+ 1c2c000     2000     ---- usr/lib/pam_echo.so.2
+    ----        d     ---- usr/lib/pam_exec.so -> pam_exec.so.2
+ 1c2e000     4000     ---- usr/lib/pam_exec.so.2
+    ----        e     ---- usr/lib/pam_group.so -> pam_group.so.2
+ 1c32000     2000     ---- usr/lib/pam_group.so.2
+    ----        f     ---- usr/lib/pam_permit.so -> pam_permit.so.2
+ 1c34000     2000     ---- usr/lib/pam_permit.so.2
+    ----        c     ---- usr/lib/pam_qnx.so -> pam_qnx.so.2
+ 1c36000     a000     ---- usr/lib/pam_qnx.so.2
+    ----        f     ---- usr/lib/pam_rootok.so -> pam_rootok.so.2
+ 1c40000     2000     ---- usr/lib/pam_rootok.so.2
+    ----        f     ---- usr/lib/pam_secpol.so -> pam_secpol.so.2
+ 1c42000     3000     ---- usr/lib/pam_secpol.so.2
+    ----        d     ---- usr/lib/pam_self.so -> pam_self.so.2
+ 1c45000     2000     ---- usr/lib/pam_self.so.2
+    ----     ----     ---- usr/libexec
+ 1039000    2b000     ---- usr/libexec/sftp-server
+  f7c000    62000     ---- usr/libexec/ssh-pkcs11-helper
+  fde000    5b000     ---- usr/libexec/ssh-sk-helper
+  e8a000    f2000     ---- usr/libexec/sshd-session
+    ----     ----     ---- usr/sbin
+  bdd000     6000     ---- usr/sbin/arp
+  be3000     6000     ---- usr/sbin/devctl
+  be9000     4000     ---- usr/sbin/devinfo
+ 20cc000     e000     ---- usr/sbin/dumper
+  bed000    19000     ---- usr/sbin/fs-nfs3
+ 2493000   18b000     ---- usr/sbin/hostapd
+ 261e000    19000     ---- usr/sbin/hostapd_cli
+  c06000     3000     ---- usr/sbin/if_up
+  c09000     4000     ---- usr/sbin/ifmcstat
+  c0d000     4000     ---- usr/sbin/ifwatchd
+  c11000     4000     ---- usr/sbin/ip6addrctl
+  c15000     9000     ---- usr/sbin/ndp
+ 1449000   216000     ---- usr/sbin/pci-tool
+  dd6000    25000     ---- usr/sbin/qconn
+ 20da000     b000     ---- usr/sbin/random
+ 165f000     3000     ---- usr/sbin/rsrcdb_query
+  dfb000    8f000     ---- usr/sbin/sshd
+  c1e000   178000     ---- usr/sbin/tcpdump
+ 20e5000     5000     ---- usr/sbin/tracelogger
+  d96000    11000     ---- usr/sbin/traceroute
+  da7000     d000     ---- usr/sbin/traceroute6
+ 2637000    87000     ---- usr/sbin/wl
+ 2208000    27000     ---- usr/sbin/wpa_cli
+ 222f000     a000     ---- usr/sbin/wpa_passphrase
+ 2239000   25a000     ---- usr/sbin/wpa_supplicant
+    ----        4     ---- usr/tmp -> /tmp
+    ----     ----     ---- var
+    ----     ----     ---- var/chroot
+    ----     ----     ---- var/chroot/sshd
+    ----        4     ---- var/log -> /tmp
+ 29043c4       44     ---- Image-trailer
+Image SHA512=8862212a47c28af6831cfc52b39f35546a702b2b46637f085a147b4eace72190ca2e79fa44e4c28fb5ffef4cd20f98600502e75b762a8a2606632ebd417cdfa8
+Image cksum=0xb202bfa6
+Startup SHA512=43c45cf8e36eca0537db0275342ca353091088ba1b44bbc38441bbb90b7e714b40e74d2e0f9b4448595abb444481c0a593cf06d96fcd4333ad21c0181d63c566
+Startup cksum=0xbf89544f

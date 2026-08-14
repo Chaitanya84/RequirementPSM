@@ -3,7 +3,7 @@
 
 ```mermaid
 flowchart TB
-    Client["CLIENT<br/>library"]
+    Client["SW<br/>Application"]
     PM["Process Manager"]
     RM["Resource Manager"]
 

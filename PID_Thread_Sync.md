@@ -1,51 +1,59 @@
 ## Process Thread and Syncronisation in QNX
 
 
+# PID, Process, Thread, and Synchronization Notes
 
+> [!TIP]
+> Quick reading guide:
+> - Focus first on <mark>fork vs exec vs spawn</mark>
+> - Then review <mark>process termination flow</mark>
+> - Finally, review <mark>thread attributes and scheduling</mark>
 
-### Process creation
+### Process Creation
 ------------
 #### <u>`fork()`</u>
-- `fork()` creates copy of colling process
-    - it is identical copy of parent
-    - start from `fork()`
-    - Intialially have the same data as parrent
-    - it is multhreaded process so should be avaoided in QNX
-    - `fork()` returns child PID and 0 for child
+- `fork()` creates a copy of calling process.
+    - It is an identical copy of parent.
+    - Starts from `fork()`.
+    - Initially has the same data as parent.
+    - It is a multithreaded process, so should be avoided in QNX.
+    - `fork()` returns child PID and 0 for child.
 
 - <u>`What gets inherited?`</u>
-    - file descriptor
-    - priority
+    - File descriptor
+    - Priority
     - Scheduling algorithm
-    - signal mask
-    - io previledge
-    - uid, gid, type id
-    - address space is replicated
+    - Signal mask
+    - I/O privilege
+    - UID, GID, type ID
+    - Address space is replicated
 - <u>`What is not inherited?`</u>
-    - side channel connections `(coids)`
-    - channels `(chids)`
-    - timers
+    - Side channel connections `(coids)`
+    - Channels `(chids)`
+    - Timers
 
-`NOTE - Assume parent has 2 threads T1 and T2. T1 is currently writing a memory location and is not finished yet but T2 created a new child process. As you know fork() creates a copy of memory this means when the child is created the child will have old data. Which is not desirable.`
+> [!WARNING]
+> `NOTE - Assume parent has 2 threads T1 and T2. T1 is currently writing a memory location and is not finished yet but T2 created a new child process. As you know fork() creates a copy of memory this means when the child is created the child will have old data. Which is not desirable.`
 
 -------------
 #### <u>`exec*()`</u>
 - `exec*()` Loads a program from store to change the calling process. <u> `It replaces the caller`</u>.
-    - Process IDs `PID` remains same
+    - Process ID `PID` remains same.
 - <u>`What gets inherited?`</u>   
-    - It is exactly same as `fork()` **except**
+    - It is exactly the same as `fork()` **except**
         - Address space is created new.
-        - inheritance of `fd` is configurable per `fd` basis.
-- Argument or `ENV` variables maybe passed to new program
-- These function not return unless there is **`error`**
+        - Inheritance of `fd` is configurable per `fd` basis.
+- Argument or `ENV` variables may be passed to new program.
+- These functions do not return unless there is **`error`**.
 ---------------------
 #### <u> `posix_spawn(), spawn*()`</u>
-- `posix_spawn(), spawn*()` loads new process by creating new process
-    - Used to load and run a program in `new process`
-    - returns `PID` of child process
-    - inheritence is same as `fork()` and `exec*()`. <u> And it is done in the sequence first inherit as `fork()` and then `exec*()` </u> .
+- `posix_spawn(), spawn*()` loads new process by creating new process.
+    - Used to load and run a program in `new process`.
+    - Returns `PID` of child process.
+    - Inheritance is same as `fork()` and `exec*()`. <u> And it is done in the sequence first inherit as `fork()` and then `exec*()` </u>.
 
-`These are convinence function and and portable to conventional unix systems`
+> [!NOTE]
+> `These are convinence function and and portable to conventional unix systems`
 
 ---------------------
 
@@ -62,33 +70,39 @@
 
 ### Detecting Process Termination
 
-- When child dies parent receives `SIGCHLD`.
-- `SIGCHLD` does not terminates Parent.
-- Parent can check why child dies by `waitpid()` or other `wait*()` functions 
-    - `wait*()` will block till child is active and return if child dies.
-- If the parent does not `wait*()` on child, the child becomes `ZOMBIE` 
-    - `ZOMBIE` does not use CPU 
-    - Most resources owned by `ZOMBIE` process is freed
+> [!IMPORTANT]
+> Keep this section in mind for debugging orphaned or zombie processes.
+
+- When child dies, parent receives `SIGCHLD`.
+- `SIGCHLD` does not terminate parent.
+- Parent can check why child dies by `waitpid()` or other `wait*()` functions.
+    - `wait*()` will block till child is active and returns if child dies.
+- If the parent does not `wait*()` on child, the child becomes `ZOMBIE`.
+    - `ZOMBIE` does not use CPU.
+    - Most resources owned by `ZOMBIE` process are freed.
     - `ZOMBIE` `PID` is not deleted from `PID` table.
-    - `ZOMBIE` exit status is held in `PID` table
-- `signal(SIGCHLD, SIG_IGN)` in parent lets parent `IGNORE` the death of child and creations of `ZOMBIE`
+    - `ZOMBIE` exit status is held in `PID` table.
+- `signal(SIGCHLD, SIG_IGN)` in parent lets parent `IGNORE` the death of child and creation of `ZOMBIE`.
 
 #### <u> `Process termination in case of client - server` </u>
 
-- Server gets notified if client die.
-- Client can get notified if server die.
-- Notification happens on death but can happen whenever client- server relationship is terminated.
+- Server gets notified if client dies.
+- Client can get notified if server dies.
+- Notification happens on death but can happen whenever client-server relationship is terminated.
 
 #### <u> `Process termination - Death Pulse` </u>
 
-- Application can register for process death using `procmgr_event_notify()`
-- request `PROCMGR_EVENT_PROCESS_DEATH` notification.
-- Application can request any kind of event but `Death Pulse` is the easiest
+- Application can register for process death using `procmgr_event_notify()`.
+- Request `PROCMGR_EVENT_PROCESS_DEATH` notification.
+- Application can request any kind of event, but `Death Pulse` is the easiest.
 
 
 --------------------------
 
 ### Thread APIs
+
+> [!NOTE]
+> All code snippets in this page are C language snippets and are marked accordingly for GitHub rendering.
 
 - Kernel Functions
     - `ThreadCreate()`
@@ -96,20 +110,20 @@
 - POSIX Functions
     - `pthread_create()`
     - `pthread_mutex_lock()`
-- C11 thread fucntions
+- C11 thread functions
     - `thrd_create()`
     - `mtx_lock()`
 
-<u> `POSIX and C11 functions are created on TOP of Kernel functions. these are portable` </u>
+<u> `POSIX and C11 functions are created on TOP of Kernel functions. These are portable` </u>
 
 #### <u> `Thread Creation` </u>
 
-```
+```c
 pthread_create (pthread_t *tid, pthread_attr_t *attr, void *(func) (void *), void *arg);
 ```
-- `void *(func) (void *)` Third argument to the function pthread_create() is called thread function. this is where thread starts executing code.
+- `void *(func) (void *)` Third argument to the function pthread_create() is called thread function. This is where thread starts executing code.
 - `arg` argument passed to your `func()`. It is optional.
-- `attr` used to specify thread attribute e.g `priority`
+- `attr` used to specify thread attribute e.g., `priority`
 
 #### <u> `Initialising attribute` </u>
 - `pthread_att_init()`
@@ -126,7 +140,7 @@ pthread_create (pthread_t *tid, pthread_attr_t *attr, void *(func) (void *), voi
 
 --------------------------------
 #### <u> `Thread attributes - Scheduling Parameters ` </u>
- Setting priority and scheduling algorithm:
+Setting priority and scheduling algorithm:
 
 ```c
 struct sched_param param;
@@ -165,3 +179,11 @@ pthread_attr_setstacksize(&attr, size);
 
 - The default stack size for new threads is **256K** (plus a **4K guard page**)
 - The **main** thread gets a **512K** stack by default
+
+---
+
+> [!TIP]
+> Revision order suggestion:
+> 1. Read `fork() exec*() vs spawn` table
+> 2. Read `ZOMBIE` behavior with `wait*()`
+> 3. Read scheduling + stack configuration snippets

@@ -16,7 +16,7 @@
     - It is an identical copy of parent.
     - Starts from `fork()`.
     - Initially has the same data as parent.
-    - It is a multithreaded process, so should be avoided in QNX.
+    - In a multithreaded process application this should be avoided, so should be avoided in QNX.
     - `fork()` returns child PID and 0 for child.
 
 - <u>`What gets inherited?`</u>
